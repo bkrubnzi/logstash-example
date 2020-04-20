@@ -1,0 +1,10 @@
+version: '3.7'
+services:
+  logstash:
+    image: docker.elastic.co/logstash/logstash:7.6.1
+    hostname: logstash
+    volumes:
+      - ./logstash.conf:/usr/share/logstash/pipeline/logstash.conf
+      - ./logstash.yml:/usr/share/logstash/config/logstash.yml
+      - ./logstash.log:/usr/share/logstash/logstash.log
+      - ./source.log:/usr/share/logstash/source.log
