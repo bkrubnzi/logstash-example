@@ -1,0 +1,21 @@
+input {
+  s3 {
+    "access_key_id" => "${AWS_ACCESS_KEY_ID}"
+    "secret_access_key" => "${AWS_SECRET_ACCESS_KEY}"
+    "bucket" => "limacharlie"
+    "region" => "us-east-2"
+    "delete" => true
+    "endpoint" => "https://s3-us-east-2.amazonaws.com"
+    "additional_settings" => {
+      "force_path_style" => true
+      "follow_redirects" => false
+    }
+  }
+}
+output {
+ file {
+   file_mode => 0644
+   dir_mode => 0644
+   path => "/usr/share/logstash/logstash.log"
+ }
+}
